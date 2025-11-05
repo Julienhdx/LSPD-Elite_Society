@@ -391,4 +391,121 @@ footer {
     font-size: 0.9em;
     margin-top: 0;
     border-top: 5px solid var(--lspd-main-blue);
+
+}
+
+/* --- STYLES POUR LE FORMAT TÉLÉPHONE (RESPONSIVE) --- */
+
+@media (max-width: 768px) {
+
+    /* 1. Réglages Généraux */
+    section {
+        padding: 40px 15px; /* Réduire les marges sur les côtés */
+    }
+    header h1 {
+        font-size: 2em; /* Réduire la taille du titre principal */
+    }
+
+    /* 2. Navigation (la rend verticale) */
+    nav ul {
+        flex-direction: column; /* Met les liens en colonne */
+        align-items: center; /* Centre les liens */
+    }
+    nav ul li a {
+        padding: 12px 20px;
+    }
+
+    /* 3. Menu Déroulant (s'intègre dans le flux) */
+    li.dropdown {
+        width: 100%; /* Le bouton "Division" prend toute la largeur */
+        text-align: center;
+    }
+    .dropdown-content {
+        position: static; /* Le sous-menu s'affiche "en ligne" */
+        width: 100%;
+        box-shadow: none; /* Pas d'ombre s'il est statique */
+        background-color: rgba(0, 0, 0, 0.1); /* Légère couleur de fond */
+    }
+    .dropdown-content li a {
+        text-align: center; /* Centrer le texte du sous-menu */
+    }
+
+    /* 4. Grilles (tout passe à 1 colonne) */
+
+    /* Grilles utilisant 'grid' */
+    .mission-grid,
+    .conditions-grid,
+    .codes-grid,
+    .miranda-steps, /* Utilisé aussi pour les missions BMR */
+    .criteria-grid, /* Spécifique BMR */
+    .bmr-codes-grid { /* Spécifique BMR */
+        grid-template-columns: 1fr; /* 1 seule colonne */
+        gap: 20px;
+    }
+
+    /* Grilles utilisant 'flex' */
+    .advantages-row-new,
+    .responsibilities-row-new,
+    .miranda-info-row,
+    .refus-definitions,
+    .promotion-and-units,
+    .bmr-protocol-flex {
+        flex-direction: column; /* Passe les éléments en colonne */
+        gap: 20px;
+    }
+
+    /* 5. Éléments spécifiques à corriger */
+    
+    /* Cartes (Avantages, Responsabilités) */
+    .resp-card-new,
+    .advantages-row-new div {
+        width: 90%; /* Au lieu de 30% */
+        margin: 0 auto;
+    }
+    .criteria-card {
+        text-align: left;
+    }
+
+    /* Pyramide des grades (devient une liste) */
+    .grade-level-new,
+    .level-cadet,
+    .level-officer1,
+    .level-officer2-3,
+    .level-sergeant,
+    .level-lieutenant,
+    .level-captain {
+        width: 95%; /* Tous les grades à la même largeur */
+    }
+    .grade-card-pyramid-new {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .grade-icon-new {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    /* Timeline (Refus d'obtempérer) - Simplification */
+    .intervention-steps::before {
+         left: 10px; /* Mettre la ligne sur le côté */
+         transform: translateX(0);
+    }
+    .step-line {
+        width: 100%; /* Pleine largeur */
+    }
+    .step-item,
+    .step-item:nth-child(even),
+    .step-item:nth-child(odd) {
+        margin: 0 0 0 40px; /* Tout aligner à droite de la ligne */
+        text-align: left; /* Aligner le texte à gauche */
+        width: auto;
+    }
+    .step-number-big,
+    .step-item:nth-child(odd) .step-number-big,
+    .step-item:nth-child(even) .step-number-big {
+        left: 0px; /* Placer le numéro sur la ligne */
+        transform: translateY(-50%) translateX(-50%);
+    }
+
 }
