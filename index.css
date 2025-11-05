@@ -1,0 +1,757 @@
+/* Variables de couleurs basées sur les screenshots */
+:root {
+    --lspd-main-blue: #004d99; /* Bleu foncé LSPD (utilisé pour les accents) */
+    --bg-light-gray: #f2f2f2; /* Fond des sections claires (comme sur l'original) */
+    --bg-dark-blue: #37536d; /* Fond des sections foncées (bleu-gris) */
+    --text-color-dark: #333;
+    --text-color-light: #fff;
+    --accent-color: #007bff; /* Bleu standard pour CTA */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-light-gray);
+    color: var(--text-color-dark);
+}
+
+/* En-tête */
+header {
+    background-color: var(--bg-dark-blue); /* Fond sombre pour l'en-tête */
+    color: var(--text-color-light);
+    padding: 40px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.slogan {
+    font-size: 1.1em;
+    opacity: 0.8;
+    max-width: 800px;
+    margin: 10px auto 0;
+}
+
+/* Navigation */
+nav {
+    background-color: var(--lspd-main-blue);
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    padding: 15px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    background-color: var(--accent-color);
+}
+
+/* --- NOUVEAUX STYLES POUR LE MENU DÉROULANT (DIVISION) --- */
+
+/* Style le conteneur <li> principal de la navigation */
+nav ul li {
+    display: inline-block; /* Permet aux éléments de s'aligner */
+}
+
+/* Style le conteneur <li> qui aura le sous-menu */
+li.dropdown {
+    position: relative; /* Contexte de positionnement pour le sous-menu */
+}
+
+/* Style le bouton principal (Division ▼) */
+.dropbtn {
+    /* Il garde le même style que les autres liens de la nav */
+    display: block;
+    color: white;
+    padding: 15px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer; /* Change le curseur en main */
+}
+
+/* Style le conteneur du sous-menu (caché par défaut) */
+.dropdown-content {
+    display: none; /* Caché par défaut */
+    position: absolute; /* Sort du flux normal */
+    background-color: var(--lspd-main-blue); /* Fond bleu LSPD (défini dans vos variables) */
+    min-width: 200px; /* Largeur minimale pour que ce soit lisible */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Ombre pour le relief */
+    z-index: 10; /* S'assure qu'il est au-dessus des autres éléments */
+    list-style: none; /* Enlève les puces */
+    padding: 0; /* Réinitialise le padding */
+    margin: 0; /* Réinitialise la marge */
+    top: 100%; /* Se positionne juste en dessous du bouton parent */
+    left: 0; /* S'aligne à gauche du bouton parent */
+}
+
+/* Correction pour forcer le sous-menu en colonne */
+.dropdown-content li {
+    display: block; /* Force les <li> du sous-menu à être en colonne */
+    width: 100%;    /* S'assure qu'ils prennent toute la largeur */
+}
+
+/* Style les liens (<li><a>) à l'intérieur du sous-menu */
+.dropdown-content li a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block; /* Fait en sorte que le lien prenne toute la largeur */
+    text-align: left; /* Aligne le texte à gauche */
+    font-weight: normal; /* Police normale (pas en gras) */
+}
+
+/* Change la couleur des liens du sous-menu au survol */
+.dropdown-content li a:hover {
+    background-color: var(--accent-color); /* Couleur d'accent (bleu plus clair) */
+}
+
+/* AFFICHE LE SOUS-MENU au survol du <li> parent */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change la couleur de fond du bouton "Division" au survol */
+.dropdown:hover .dropbtn {
+    background-color: var(--accent-color);
+}
+
+/* Contenu principal */
+main {
+    max-width: 1200px;
+    margin: auto;
+}
+
+section {
+    padding: 60px 40px;
+    margin-bottom: 0; /* Pas de marge entre les sections */
+}
+
+/* Styles pour alterner les sections claires et foncées */
+.section-light {
+    background-color: white;
+    color: var(--text-color-dark);
+}
+
+.section-dark {
+    background-color: var(--bg-dark-blue);
+    color: var(--text-color-light);
+}
+
+section h2 {
+    color: var(--lspd-main-blue);
+    margin-top: 0;
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.section-dark h2 {
+    color: var(--text-color-light); /* Titres en blanc sur fond sombre */
+}
+
+/* Bouton CTA (Call to Action) */
+.btn-cta {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 12px 30px;
+    margin-top: 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+}
+
+.btn-cta:hover {
+    background-color: #0056b3;
+}
+
+.primary {
+    background-color: #cc0000; /* Rouge d'alerte/action */
+}
+
+.primary:hover {
+    background-color: #990000;
+}
+
+.centered {
+    text-align: center;
+}
+
+/* Styles spécifiques à la section Présentation */
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 30px 0;
+    text-align: center;
+}
+
+.mission-grid div {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: var(--bg-light-gray);
+}
+
+.mission-grid .icon {
+    font-size: 2em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Styles spécifiques à la section Conditions */
+.conditions-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 40px 0;
+    text-align: center;
+}
+
+.condition-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.condition-card .number {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.qualities {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin-top: 40px;
+}
+
+.qualities ul {
+    list-style: none;
+    padding: 0;
+    flex: 1;
+}
+
+.qualities ul li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.image-qualities {
+    flex: 1;
+    text-align: right;
+}
+
+/* Styles spécifiques aux Avantages et Responsabilités */
+.advantages-row {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.advantage-card {
+    width: 30%;
+    padding: 15px;
+    border-bottom: 3px solid var(--lspd-main-blue);
+}
+
+.responsibilities-title {
+    text-align: center;
+    color: var(--lspd-main-blue);
+    margin: 40px 0 20px;
+    border-bottom: 1px solid #ddd;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.responsibilities-row {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.resp-card {
+    width: 30%;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.resp-card .icon {
+    font-size: 2em;
+    color: var(--lspd-main-blue);
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* --- NOUVEAUX STYLES POUR LES CODES ET PROTOCOLES --- */
+
+/* Styles généraux pour les nouvelles sections */
+#codes h2, #refus h2 {
+    color: var(--lspd-main-blue);
+}
+#miranda h2 {
+    color: var(--text-color-light);
+}
+
+/* 3. Codes Radio */
+.codes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.code-column h3 {
+    color: var(--accent-color);
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.code-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.code-column li {
+    margin-bottom: 8px;
+}
+
+.protocol-note {
+    background-color: #e6eef5; /* Fond bleu clair comme sur le screenshot */
+    padding: 20px;
+    border-left: 5px solid var(--lspd-main-blue);
+    border-radius: 4px;
+    margin-bottom: 40px;
+}
+
+.protocol-note h3 {
+    margin-top: 0;
+    color: var(--lspd-main-blue);
+}
+
+.rto-note {
+    background-color: #dbe4ef; /* Fond légèrement plus foncé pour l'encadré RTO */
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+.important-codes-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.important-codes-list ul {
+    list-style: disc;
+    padding-left: 20px;
+    flex: 2;
+}
+.image-placeholder {
+    /* Simule l'image pour l'instant */
+    flex: 1;
+    text-align: right;
+    font-style: italic;
+    color: #999;
+}
+
+/* 4. Droits Miranda */
+.miranda-text-box {
+    background-color: white;
+    color: var(--text-color-dark);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0 40px;
+    line-height: 1.8;
+}
+
+.miranda-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.miranda-steps .step {
+    border-top: 2px solid var(--text-color-light);
+    padding-top: 15px;
+}
+
+.miranda-steps .step-number {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.miranda-info-row {
+    display: flex;
+    gap: 40px;
+}
+
+.miranda-info-row .info-box {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.miranda-info-row .info-box ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+.miranda-info-row .info-box h3 {
+    color: var(--accent-color);
+}
+
+/* 5. Refus d'Obtempérer & Délit de Fuite */
+.refus-definitions {
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.def-card {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.def-card h3 {
+    color: var(--lspd-main-blue);
+    margin-top: 10px;
+}
+
+.protocol-intervention {
+    background-color: var(--bg-dark-blue); /* Fond sombre comme sur le screenshot original */
+    color: var(--text-color-light);
+    padding: 40px;
+    border-radius: 8px;
+}
+
+.protocol-intervention h3 {
+    text-align: center;
+    color: var(--text-color-light);
+    margin-bottom: 40px;
+}
+
+.intervention-steps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Ligne verticale */
+.intervention-steps::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(-50%);
+}
+
+.step-line {
+    width: 80%;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.step-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px 30px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.step-item:nth-child(odd) {
+    /* Alignement à gauche */
+    margin-right: 50%;
+    text-align: right;
+}
+
+.step-item:nth-child(even) {
+    /* Alignement à droite */
+    margin-left: 50%;
+    text-align: left;
+}
+
+.step-number-big {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.step-item:nth-child(odd) .step-number-big {
+    right: -45px;
+}
+
+.step-item:nth-child(even) .step-number-big {
+    left: -45px;
+}
+
+
+/* Styles spécifiques aux Grades et Unités */
+.grade-timeline {
+    /* Utiliser une mise en page visuelle si possible, pour l'exemple, c'est simple */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.grade-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color-light);
+    width: 60%;
+    margin: 10px 0;
+    padding: 15px;
+    border-left: 3px solid var(--accent-color);
+}
+
+.promotion-and-units {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.promo-factors, .specialized-units {
+    flex: 1;
+}
+
+.promo-factors ul, .specialized-units ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.section-dark ul li {
+    color: var(--text-color-light);
+}
+
+/* Styles spécifiques au Formulaire de candidature */
+.important-note {
+    background-color: #ffe0b2; /* Couleur orange clair */
+    color: #e65100; /* Texte orange foncé */
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px auto;
+    max-width: 600px;
+    font-weight: normal;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.important-note .icon {
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+#postuler ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+#postuler ul li {
+    margin: 10px 0;
+}
+
+/* --- NOUVEAUX STYLES POUR AVANTAGES ET GRADES (fd06c1.png et fd071a.png) --- */
+
+/* Styles pour la section Avantages et Responsabilités */
+.advantages-row-new {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin: 40px 0;
+    gap: 30px;
+}
+
+.advantages-row-new h3 {
+    color: var(--lspd-main-blue);
+    font-size: 1.1em;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.responsibilities-title-new {
+    font-size: 1.5em;
+    color: var(--lspd-main-blue);
+    margin: 60px 0 30px;
+}
+
+.responsibilities-row-new {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.resp-card-new {
+    width: 30%;
+    text-align: center;
+    padding: 30px 15px;
+    position: relative;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.icon-resp {
+    /* Cache et utilise le fond pour simuler la flèche/bandeau */
+    display: block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    margin: 0 auto 10px;
+    font-size: 2em;
+    color: var(--lspd-main-blue);
+}
+
+/* Simuler le chemin en chevrons comme sur l'image (plus complexe en CSS pur) */
+/* Pour un résultat simple et efficace, nous allons utiliser un fond coloré */
+.responsibilities-row-new {
+    background: linear-gradient(to right, #f2f2f2 0%, #f2f2f2 100%);
+    padding: 30px 0;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.small-text-centered {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* --- NOUVEAUX STYLES POUR LA PYRAMIDE DES GRADES (image fd071a.png) --- */
+
+.grade-pyramid-container-new {
+    display: flex;
+    flex-direction: column; /* De bas en haut */
+    align-items: center;
+    margin: 50px auto;
+    max-width: 900px; /* Limite la largeur de la pyramide */
+}
+
+.grade-level-new {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Espace entre les niveaux */
+    width: 100%; /* Sera ajusté par les classes spécifiques */
+    position: relative;
+}
+
+/* Ajustement des largeurs pour la forme pyramidale ASCENDANTE */
+.level-cadet { width: 90%; }
+.level-officer1 { width: 80%; }
+.level-officer2-3 { width: 70%; }
+.level-sergeant { width: 60%; }
+.level-lieutenant { width: 50%; }
+.level-captain { width: 40%; } /* Le plus haut, le plus étroit */
+
+
+.grade-card-pyramid-new {
+    background-color: rgba(255, 255, 255, 0.15); /* Couleur du bloc gris-bleu */
+    color: var(--text-color-light);
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Légère ombre pour le relief */
+    border-radius: 5px;
+}
+
+.grade-card-pyramid-new h3 {
+    margin: 0;
+    font-size: 1.2em; /* Taille du titre plus grande */
+    font-weight: normal;
+}
+
+.grade-card-pyramid-new p {
+    margin: 0;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.grade-icon-new {
+    font-size: 2.2em; /* Icône plus grande */
+    margin-right: 20px;
+    color: var(--accent-color);
+}
+
+/* Facteurs et Unités Spécialisées */
+.promotion-and-units {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+.promo-factors, .specialized-units {
+    flex: 1;
+}
+
+.section-dark .promo-factors h3, .section-dark .specialized-units h3 {
+    color: var(--text-color-light);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+}
+/* Pied de page */
+footer {
+    background-color: var(--bg-dark-blue);
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9em;
+    margin-top: 0;
+    border-top: 5px solid var(--lspd-main-blue);
+}
